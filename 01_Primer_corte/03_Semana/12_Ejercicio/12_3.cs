@@ -4,77 +4,72 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Ejercicio1
+namespace Ejercicio12
 {
     class program
     {
         static void Main(string[] args)
         {
             int num = 0;
-            int sf = 0;
-            int sm = 0;
             int i = 0;
-            int c1 = 0;
-            int c2 = 0; 
-            int cant_mujeres = 0;
-            int cant_hombres = 0;
-            int suma1 = 0;
-            int suma2 = 0; 
+            int suma1 = 0, suma2 = 0, suma3 = 0;
+            
             int opcion;
-            Console.WriteLine("digite la cantidad de empleados");
+            Console.WriteLine("digite una cantidad de votantes mayor a 20");
             num = int.Parse(System.Console.ReadLine());
-
-            while (i < num)
+           
+            if (num<20)
             {
-                Console.WriteLine("1: femenino");
-                Console.WriteLine("2: masculino");
-                Console.WriteLine("El sexo del empleado es");
-                opcion = int.Parse(System.Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        Console.WriteLine();
-                        Console.WriteLine("digite su sueldo");
-                        sf = int.Parse(System.Console.ReadLine());
-                        if (sf >= 1000000)
-                        {
-                            c1 = c1 + 1;
-                            suma1 = suma1 + sf;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Su salario es menor a 1000000");
-                        }
-                        cant_mujeres = cant_mujeres + 1;
-                        break;
-
-                    case 2:
-                        Console.WriteLine();
-                        Console.WriteLine("digite su sueldo");
-                        sm = int.Parse(System.Console.ReadLine());
-                        if (sm >0 && sm <= 900000)
-                        {
-                            c2 = c2 + 1;
-                            suma2 = suma2 + sm;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Su salario es mayor a 900000");
-                        }
-                        cant_hombres = cant_hombres + 1;
-                        break;
-                }
-     
-                i++;
+                Console.WriteLine("No es posible realizar la votacion, ya que no9 hay mas de 20 votantes");
             }
+            else
+            {
+                while (i < num)
+                {
 
-            Console.WriteLine(" La suma de los salarios de las mujeres es: {0}", suma1);
-            Console.WriteLine(" La suma de los salarios de los hombres es: {0}", suma2);
-            Console.WriteLine(" La cantidad de mujeres son: {0}", cant_mujeres);
-            Console.WriteLine(" La cantidad de hombres son: {0}", cant_hombres);
-            Console.WriteLine(" La cantidad de mujeres que ganan mas de 1000000: {0}", c1);
-            Console.WriteLine(" La cantidad de hombres que ganan menos de 900000: {0}", c2);
+                    Console.WriteLine("1: candidato1");
+                    Console.WriteLine("2: candidato2");
+                    Console.WriteLine("3: candidato3");
+                    Console.WriteLine("Seleccione su candidato");
+                    opcion = int.Parse(System.Console.ReadLine());
+
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.WriteLine();
+                            suma1 = suma1 + 1;
+                            break;
+
+                        case 2:
+                            Console.WriteLine();
+                            suma2 = suma2 + 1;
+                            break;
+                        case 3:
+                            Console.WriteLine();
+                            suma3 = suma3 + 1;
+                            break;
+                    }
+
+                    i++;
+                }
+
+                if (suma1 > suma2 && suma1 > suma3)
+                {
+                    Console.WriteLine(" El candidato con mayor votacion es: candidato 1");
+                }
+                if (suma2 > suma1 && suma2 > suma3)
+                {
+                    Console.WriteLine(" El candidato con mayor votacion es: candidato 2");
+                }
+                if (suma3 > suma1 && suma3 > suma2)
+                {
+                    Console.WriteLine(" El candidato con mayor votacion es: candidato 3");
+                }
+
+                Console.WriteLine(" La cantidad de votos por el candidato 1 son: {0}", suma1);
+                Console.WriteLine(" La cantidad de votos por el candidato 2 son: {0}", suma2);
+                Console.WriteLine(" La cantidad de votos por el candidato 3 son: {0}", suma3);
+            }
 
         }
     }
