@@ -14,15 +14,19 @@ namespace Vector2
             Console.Write("Ingrese la longitud del Vector: ");
             tamañovector = int.Parse(System.Console.ReadLine());
             Vector = new int[tamañovector];
+        }
 
-            Random aleatorio = new Random();
-
-            for (int f = 0; f < Vector.Length; f++)
+        private void aleatorio()
             {
-                Vector[f] = (aleatorio.Next(0, 9)+1); 
+                Random aleatorio = new Random();
+
+                for (int f = 0; f < Vector.Length; f++)
+                {
+                    Vector[f] = (aleatorio.Next(0, 9) + 1);
+                }
+
             }
 
-        }
         public void Mostrar()
         {
             for (int f = 0; f < Vector.Length; f++)
@@ -33,20 +37,21 @@ namespace Vector2
         }
         public void suma()
         {
-            int resultado = 0; 
+            int resultado = 0;
             for (int f = 0; f < Vector.Length; f++)
             {
-                resultado = resultado + Vector[f] ;
+                resultado = resultado + Vector[f];
                 Console.WriteLine("La suma del vector es = " + resultado);
             }
 
         }
         static void Main(string[] args)
         {
-          program Program = new program();
-          Program.CargarVector();
-          Program.Mostrar();
-          Program.suma();
-        }  
+            program Program = new program();
+            Program.CargarVector();
+            Program.aleatorio(); 
+            Program.Mostrar();
+            Program.suma();
+        }
     }
 }
