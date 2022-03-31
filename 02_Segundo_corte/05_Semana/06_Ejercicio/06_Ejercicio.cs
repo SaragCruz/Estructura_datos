@@ -16,7 +16,7 @@ namespace AplicacionBase
             while (i < alumnos)
             {
 
-                Console.WriteLine("Estudiante" + i);
+                Console.WriteLine("Estudiante " + i);
                 Console.WriteLine("Nota #1: ");
                 double n1 = double.Parse(System.Console.ReadLine());
 
@@ -36,19 +36,24 @@ namespace AplicacionBase
 
             int j = 0;
             double suma = 0;
+            double mayor = 0;
 
             while (j < alumnos)
             {
                 double proalum1 = (matriz1[j, 0] + matriz1[j, 1] + matriz1[j, 2]) / 3;
                 Console.WriteLine("El promedio del alumno " + j + " es: " + proalum1);
-
+                                        
+                    if (mayor < proalum1)
+                    {
+                      mayor = proalum1;
+                    }
                 suma = suma + proalum1;
                 j++;
             }
 
             double progen = suma / alumnos;
             Console.WriteLine("El promedio general de los alumnos es:" + progen);
-
+            Console.WriteLine("El promedio mas alto de los alumnos es:" + mayor);
         }
     }
 }
