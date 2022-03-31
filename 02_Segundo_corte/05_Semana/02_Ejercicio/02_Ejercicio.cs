@@ -37,7 +37,7 @@ namespace AplicacionBase
 
                         {
 
-                            Console.WriteLine("digite el numero");
+                            Console.WriteLine("digite un numero en el rango de 10 a 999");
                             matriz[o,m] = int.Parse(System.Console.ReadLine());
                            
                         }
