@@ -1,44 +1,72 @@
 using System;
 using System.Collections;
 
-namespace Ejer11
+namespace Ejercicio10
 {
-    class Paises
+    class Academia
     {
-        private string [,] MatrizPais;
-        int CANTIDAD_FILAS=4;
-        int CANTIDAD_COLUMNAS=4;
-        public void CargaMatrizPaises()
-        {
-            MatrizPais=new string[CANTIDAD_FILAS, CANTIDAD_COLUMNAS];
+        private int[,] MatrizAcademia;
+        int CANTIDAD_FILAS = 3;
+        int CANTIDAD_COLUMNAS = 4;
 
-            for(int f=0;f<CANTIDAD_FILAS;f++){
-                for(int c=0;c<CANTIDAD_COLUMNAS;c++){
-                    if(c==0){
-                        Console.Write("Digite el país:");
-                    }
-                    else{
-                        Console.Write("Digite las ciudades:");
-                    }
+        public void CargarMatriz()
+        {
+            MatrizAcademia = new int[CANTIDAD_FILAS, CANTIDAD_COLUMNAS];
+
+            for (int f = 0; f < CANTIDAD_FILAS; f++)
+            {
+                for (int c = 0; c < CANTIDAD_COLUMNAS; c++)
+                {
+                    Console.Write("Digite la cantidad de estudiantes: ");
+                    MatrizAcademia[f, c] = int.Parse(Console.ReadLine());
                 }
+
             }
         }
-        public void Imprimir()
+        public void MostrarMatriz()
         {
-            Console.Write("País: ");
-            for(int f=0;f<CANTIDAD_FILAS;f++){
-                Console.Write("Ciudades: ");
-                for(int c=0;c<CANTIDAD_COLUMNAS;c++){
-                    Console.Write(" "+MatrizPais[f,c]+" ");
+            for (int f = 0; f < CANTIDAD_FILAS; f++)
+            {
+                if (f == 0)
+                {
+                    Console.WriteLine("\nNivel básico: ");
+
+                }
+                if (f == 1)
+                {
+                    Console.WriteLine("\nNivel medio: ");
+                }
+                if (f == 2)
+                {
+                    Console.WriteLine("\nNivel de perfeccionamiento: ");
+                }
+                for (int c = 0; c < CANTIDAD_COLUMNAS; c++)
+                {
+                    if (c == 0)
+                    {
+                        Console.Write("Inglés");
+                    }
+                    if (c == 1)
+                    {
+                        Console.Write("Francés");
+                    }
+                    if (c == 2)
+                    {
+                        Console.Write("Alemán");
+                    }
+                    if (c == 3)
+                    {
+                        Console.Write("Ruso");
+                    }
+                    Console.WriteLine(" " + MatrizAcademia[f, c]);
                 }
             }
         }
         static void Main(string[] args)
         {
-            Paises op=new Paises();
-            op.CargaMatrizPaises();
-            op.Imprimir();
+            Academia op = new Academia();
+            op.CargarMatriz();
+            op.MostrarMatriz();
         }
     }
-
 }
